@@ -1,0 +1,23 @@
+.main {
+  height: 100%;
+  background-color: rgb(42, 42, 42);
+  color: white;
+  padding: 9em;
+  padding-top: 4em;
+}
+
+.table td {
+  min-width: 10em;
+  text-align: center;
+  border: 1px solid rgb(126, 126, 126);
+  background-color: rgb(156, 156, 156);
+  color: black;
+}
+
+.table thead tr td {
+  font-weight: bold;
+}
+
+.jumpTopDark {
+  color: white;
+}

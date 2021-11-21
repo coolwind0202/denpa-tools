@@ -1,0 +1,191 @@
+type SchemaType = {
+  label: string,
+  type: "number" | "range" | "boolean",
+  min?: number,
+  max?: number,
+};
+
+const _minMaxLimit = {
+  type: "range",
+  min: 0,
+  max: 1000
+} as const;
+
+const _minMaxTypes = {
+  type: "range",
+  min: 0,
+  max: 999
+} as const;
+
+const _bool = {
+  type: "boolean"
+} as const;
+
+const _againstType = {
+  type: "range",
+  min: 0,
+  max: 1
+} as const;
+
+const _doubleAttack = _againstType;
+
+const _minMaxPercent = {
+  type: "range",
+  min: 0,
+  max: 100
+} as const;
+
+const _guard = {
+  type: "range",
+  min: 0,
+  max: 9
+} as const;
+
+const equipSchema: Map<string, SchemaType> = new Map<string, SchemaType>(
+  [
+    ["atk", { label: "こうげきりょく", ..._minMaxLimit }],
+    ["def", { label: "ぼうぎょりょく", ..._minMaxLimit }],
+    ["spd", { label: "すばやさ", ..._minMaxLimit }],
+    ["eva", { label: "かいひりつ", ..._minMaxLimit }],
+    ["attack-fire", { label: "火攻撃", ..._bool }],
+    ["attack-aqua", { label: "水攻撃", ..._bool }],
+    ["attack-elec", { label: "電気攻撃", ..._bool }],
+    ["attack-dirt", { label: "土攻撃", ..._bool }],
+    ["attack-wind", { label: "風攻撃", ..._bool }],
+    ["attack-ice", { label: "氷攻撃", ..._bool }],
+    ["attack-dark", { label: "闇攻撃", ..._bool }],
+    ["attack-light", { label: "光攻撃", ..._bool }],
+    ["debuff-poison", { label: "+毒", ..._bool }],
+    ["debuff-strong-poison", { label: "+猛毒", ..._bool }],
+    ["debuff-palsy", { label: "+マヒ", ..._bool }],
+    ["debuff-sleep", { label: "+ねむり", ..._bool }],
+    ["debuff-death", { label: "+突然死", ..._bool }],
+    ["debuff-fire", { label: "+やけど", ..._bool }],
+    ["debuff-aqua", { label: "+みずびたし", ..._bool }],
+    ["debuff-elec", { label: "+かんでん", ..._bool }],
+    ["debuff-dirt", { label: "+どろだらけ", ..._bool }],
+    ["debuff-wind", { label: "+かぜっぴき", ..._bool }],
+    ["debuff-ice", { label: "+しもやけ", ..._bool }],
+    ["debuff-dark", { label: "+呪い", ..._bool }],
+    ["debuff-light", { label: "+ブラインド", ..._bool }],
+    ["one-punch", { label: "一撃必殺", ..._bool }],
+    ["debuff-down-atk", { label: "攻撃おとし", ..._bool }],
+    ["debuff-down-def", { label: "防御おとし", ..._bool }],
+    ["debuff-down-spd", { label: "素早さおとし", ..._bool }],
+    ["debuff-down-spd", { label: "回避おとし", ..._bool }],
+    ["excitement", { label: "こうふん", ..._bool }],
+    ["hit-definitely", { label: "必中", ..._bool }],
+    ["ignore-shield", { label: "シールド無視", ..._bool }],
+    ["against-dragon", { label: "対竜", ..._againstType }],
+    ["against-beast", { label: "対獣", ..._againstType }],
+    ["against-deamon", { label: "対魔", ..._againstType }],
+    ["against-ghost", { label: "対霊", type: "range", min: 1, max: 2 }],
+    ["against-insect", { label: "対虫", ..._againstType }],
+    ["against-marine", { label: "対水生", ..._againstType }],
+    ["against-plant", { label: "対植物", ..._againstType }],
+    ["against-goodness", { label: "対ぜん", ..._againstType }],
+    ["against-badness", { label: "対あく", ..._againstType }],
+    ["critical", { label: "クリティカル", type: "range", min: 0, max: 70 }],
+    ["buff-double-atk", { label: "こうげき倍増", ..._doubleAttack }],
+    ["buff-double-magic", { label: "とくぎ倍増", ..._doubleAttack }],
+    ["buff-double-fire", { label: "火属性倍増", ..._doubleAttack }],
+    ["buff-double-water", { label: "水属性倍増", ..._doubleAttack }],
+    ["buff-double-elec", { label: "電気属性倍増", ..._doubleAttack }],
+    ["buff-double-dirt", { label: "土属性倍増", ..._doubleAttack }],
+    ["buff-double-wind", { label: "風属性倍増", ..._doubleAttack }],
+    ["buff-double-ice", { label: "氷属性倍増", ..._doubleAttack }],
+    ["buff-double-light", { label: "光属性倍増", ..._doubleAttack }],
+    ["buff-double-dark", { label: "闇属性倍増", ..._doubleAttack }],
+    ["atk-3", { label: "3人こうげき", ..._bool }],
+    ["atk-5", { label: "5人こうげき", ..._bool }],
+    ["buff-count-atk", { label: "こうげき数", ..._bool }],
+    ["buff-count-magic", { label: "とくぎ数", ..._bool }],
+    ["constant-damage", { label: "ダメージ固定", ..._bool }],
+    ["co-atk", { label: "れんけい", ..._bool }],
+    ["target-normal", { label: "ターゲット", ..._bool }],
+    ["target-fire", { label: "火ターゲット", ..._bool }],
+    ["target-water", { label: "水ターゲット", ..._bool }],
+    ["target-elec", { label: "電ターゲット", ..._bool }],
+    ["target-dirt", { label: "土ターゲット", ..._bool }],
+    ["target-wind", { label: "風ターゲット", ..._bool }],
+    ["target-ice", { label: "氷ターゲット", ..._bool }],
+    ["target-light", { label: "光ターゲット", ..._bool }],
+    ["target-dirt", { label: "闇ターゲット", ..._bool }],
+    ["body-poison", { label: "毒ボディ", ..._bool }],
+    ["body-strong-poison", { label: "猛毒ボディ", ..._bool }],
+    ["body-fire", { label: "やけどボディ", ..._bool }],
+    ["body-aqua", { label: "みずボディ", ..._bool }],
+    ["body-elec", { label: "感電ボディ", ..._bool }],
+    ["body-dirt", { label: "どろボディ", ..._bool }],
+    ["body-wind", { label: "かぜボディ", ..._bool }],
+    ["body-ice", { label: "霜焼けボディ", ..._bool }],
+    ["body-dark", { label: "のろいボディ", ..._bool }],
+    ["guard-dragon", { label: "竜ガード", ..._minMaxPercent }],
+    ["guard-beast", { label: "獣ガード", ..._minMaxPercent }],
+    ["guard-deamon", { label: "魔ガード", ..._minMaxPercent }],
+    ["guard-ghost", { label: "霊ガード", ..._minMaxPercent }],
+    ["guard-insect", { label: "虫ガード", ..._minMaxPercent }],
+    ["guard-marine", { label: "水生ガード", ..._minMaxPercent }],
+    ["guard-plant", { label: "植物ガード", ..._minMaxPercent }],
+    ["guard-goodness", { label: "ぜんガード", ..._minMaxPercent }],
+    ["guard-badness", { label: "あくガード", ..._minMaxPercent }],
+    ["frenzy", { label: "逆ギレ", ..._bool }],
+    ["harden", { label: "硬化", ..._bool }],
+    ["malala", { label: "こんじょう", ..._bool }],
+    ["damage-instead", { label: "かばう", ..._minMaxPercent }],
+    ["cuteness", { label: "ゆうわく", ..._minMaxPercent }],
+    ["thorns", { label: "トゲトゲ", ..._bool }],
+    ["counter", { label: "カウンター", ..._bool }],
+    ["auto-guard", { label: "オート防御", ..._bool }],
+    ["reflection", { label: "反射", ..._minMaxPercent }],
+    ["ghostized", { label: "ゴースト化", ..._minMaxPercent }],
+    ["phantom", { label: "まぼろし", ..._minMaxPercent }],
+    ["pally", { label: "うけながし", ..._minMaxPercent }],
+    ["guard-type-fire", { label: "火たいせい", ..._guard }],
+    ["guard-type-water", { label: "水たいせい", ..._guard }],
+    ["guard-type-elec", { label: "電気たいせい", ..._guard }],
+    ["guard-type-dirt", { label: "土たいせい", ..._guard }],
+    ["guard-type-wind", { label: "風たいせい", ..._guard }],
+    ["guard-type-ice", { label: "氷たいせい", ..._guard }],
+    ["guard-type-light", { label: "光たいせい", ..._guard }],
+    ["guard-type-dark", { label: "闇たいせい", ..._guard }],
+    ["guard-type-all", { label: "全属性たいせい", ..._guard }],
+    ["guard-ill-palsy", { label: "マヒたいせい", ..._guard }],
+    ["guard-ill-sleep", { label: "ねむりたいせい", ..._guard }],
+    ["guard-ill-death", { label: "対突然死", ..._guard }],
+    ["guard-ill-fire", { label: "やけどたいせい", ..._guard }],
+    ["guard-ill-aqua", { label: "水びたしたいせい", ..._guard }],
+    ["guard-ill-elec", { label: "かんでんたいせい", ..._guard }],
+    ["guard-ill-dirt", { label: "どろだらけたいせい", ..._guard }],
+    ["guard-ill-wind", { label: "かぜっぴきたいせい", ..._guard }],
+    ["guard-ill-ice", { label: "しもやけたいせい", ..._guard }],
+    ["guard-ill-dark", { label: "呪いたいせい", ..._guard }],
+    ["guard-ill-light", { label: "ブラインドたいせい", ..._guard }],
+    ["guard-ill-cute", { label: "誘惑たいせい", ..._guard }],
+    ["guard-ill-all", { label: "全状態異常たいせい", ..._guard }],
+    ["buff-goodness", { label: "ふうかく", ..._guard }],
+    ["buff-badness", { label: "きょうふ", ..._minMaxPercent }],
+    ["hp-auto-heal", { label: "HP自動回復", ..._minMaxPercent }],
+    ["hp-double-heal", { label: "HP自動回復", type: "range", min: 1, max: 3 }],
+    ["hp-absorb", { label: "HP吸収", ..._minMaxPercent }],
+    ["hp-max", { label: "さいだいHP", ..._minMaxLimit }],
+    ["ap-auto-heal", { label: "AP自動回復", type: "range", min: 0, max: 10 }],
+    ["ap-save", { label: "AP節約", ..._minMaxPercent }],
+    ["ap-max", { label: "さいだいAP", ..._minMaxLimit }],
+    ["accelerate", { label: "加速", ..._bool }],
+    ["anntena-down", { label: "アンテナダウン", ..._bool }],
+    ["ignore-floor-damage", { label: "床ダメージ無", ..._bool }],
+    ["float", { label: "浮遊", ..._bool }],
+    ["exp", { label: "経験値", ..._minMaxLimit }],
+    ["gold", { label: "ゴールド", ..._minMaxLimit }],
+    ["drop-normal", { label: "おたから", ..._minMaxLimit }],
+    ["drop-rare", { label: "レアおたから", ..._minMaxLimit }],
+    ["drop-rarest", { label: "激レアおたから", ..._minMaxLimit }],
+    ["catch-monster", { label: "ほかく", ..._minMaxLimit }],
+    ["escape", { label: "にげる", ..._minMaxPercent }],
+  ]
+);
+
+
+export { equipSchema };
+export type { SchemaType };
