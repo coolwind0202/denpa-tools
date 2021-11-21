@@ -4,7 +4,7 @@ import { JumpTop } from "../components/common/jump_top";
 import { Form } from "../components/equip_search/form";
 import { Effect, ResponseData } from "./api/search";
 
-const equipSearch: NextPage = () => {
+const EquipSearch: NextPage = () => {
   const [ result, setResult ] = useState<ResponseData>();
   const onSolved = (response: ResponseData) => {
     setResult(response);
@@ -58,4 +58,4 @@ const equipSearch: NextPage = () => {
   );
 }
 
-export default equipSearch;
+export default EquipSearch;
