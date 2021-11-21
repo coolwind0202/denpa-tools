@@ -30,7 +30,7 @@ const Exp = () => {
       <h4> 経験値テーブルの性質 </h4>
 
       <p>
-        回避0最大型がもっとも必要経験値量が多い。回避0最大型の経験値テーブルをタイプAとして、必要量の小さい順にアルファベットを振っていくと・・・
+        回避0最大型がもっとも必要経験値量が多い。回避0最大型の経験値テーブルをタイプAとして、必要量の大きい順にアルファベットを振っていくと・・・
       </p>
 
       <table className={styles.table}>
@@ -129,7 +129,7 @@ const Exp = () => {
 
       <p>
         と、ここまで書いてきたが実際にはたったこれだけのことしか筆者には分かっていない。
-        残念なことにLv.123まで記録したところで、筆者は飽きてしまった。
+        残念なことにLv.122まで記録したところで、筆者は飽きてしまった。
       </p>
 
       <p>
@@ -144,6 +144,25 @@ const Exp = () => {
       <p>
         将来この検証にピリオドを打ってくれる人のために、私が作成したスプレッドシートのリンクをいくつか紹介しておこうと思う。
       </p>
+
+      <ul>
+        <li>
+          <a href="https://docs.google.com/spreadsheets/d/19qkpblo75Q6uVT8uFdQZGH-gQNJuedSGedx2SansP-k/edit?usp=sharing"> アンテナ無し最大型データ </a>
+          <span> / Lv.122 まで完成。一部記録ミスもあるが、現時点でもっとも有効なデータ。経験値とステータスの両方を記録している。</span>
+        </li>
+        <li>
+          <a href="https://docs.google.com/spreadsheets/d/1-7cvW_4K2FBgLsVKMs6vDO5ZtbiVMb6JigV_iMLC_Lk/edit?usp=sharing"> 全アンテナステータス表 </a>
+          <span> / ほとんど完成していない。全アンテナ・全体格のステータス変動を記録することを目的としたシート。 </span>
+        </li>
+        <li>
+          <a href="https://docs.google.com/spreadsheets/d/1DHC-546fh0GPJq6-6EL8Wnh_6eAQakZ3ZKb56aUzMXE/edit?usp=sharing"> 経験値B ~ E表 </a>
+          <span> / 経験値タイプ B、C、D、E の Lv.15 までの経験値テーブル。 </span>
+        </li>
+        <li>
+          <a href="https://docs.google.com/spreadsheets/d/1GgOE-ZlHF26a3G0O2wezD2HRU_DMIu4WAC3iyw197Bs/edit?usp=sharing"> 回避15最速 </a>
+          <span> / 回避15最速型の経験値とステータスの記録（Lv.24まで）。</span>
+        </li>
+      </ul>
 
       <p>
         昔、某有名な体格表を作った人に憧れてライブドアブログに今より多くのデータをまとめていましたが、恥ずかしくなって爆破してしまいました。
