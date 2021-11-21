@@ -6,6 +6,11 @@
   padding-top: 4em;
 }
 
+.main h4, .main h3 {
+  position: relative;
+  right: 1em;
+}
+
 .table td {
   min-width: 10em;
   text-align: center;
