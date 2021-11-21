@@ -57,7 +57,6 @@ export default function handler(
       
   */
   const body = JSON.parse(req.body) as RequestData;
-  for (const key in body) console.log(key);
   const solution: ResponseData = {
     categories: []
   };

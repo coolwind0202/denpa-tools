@@ -64,7 +64,8 @@ const Form = ({ onSolved }: { onSolved: (response: ResponseData) => void }) => {
     console.log(JSON.stringify(req));
 
     const get = async () => {
-      const response = await fetch("http://localhost:3000/api/search", {
+      
+      const response = await fetch(process.env.NODE_ENV === "development" ? "http://localhost:3000/api/search": "https://denpa-tools.vercel.app/api/search", {
         method: "POST",
         body: JSON.stringify(req),
       });
