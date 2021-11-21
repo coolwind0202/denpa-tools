@@ -100,7 +100,7 @@ const equipSchema: Map<string, SchemaType> = new Map<string, SchemaType>(
     ["atk-5", { label: "5人こうげき", ..._bool }],
     ["buff-count-atk", { label: "こうげき数", ..._bool }],
     ["buff-count-magic", { label: "とくぎ数", ..._bool }],
-    ["constant-damage", { label: "ダメージ固定", ..._bool }],
+    ["constant-damage", { label: "ダメージ", ..._minMaxLimit }],
     ["co-atk", { label: "れんけい", ..._bool }],
     ["target-normal", { label: "ターゲット", ..._bool }],
     ["target-fire", { label: "火ターゲット", ..._bool }],
