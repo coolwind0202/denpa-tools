@@ -7,7 +7,7 @@ type PatternImageProps = {
 
 const PatternImage: React.VFC<PatternImageProps> = ({ className }) => {
   return (
-    <img className={clsx(className, styles.root)} />
+    <img className={clsx(styles.root, className)} />
   );
 }
 

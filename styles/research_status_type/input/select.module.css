@@ -1,8 +1,9 @@
 .root {
-  background-color: rgba(226, 226, 226, 0.3);
+  background-color: rgb(125, 131, 184);
   padding: 10px;
   border-radius: 3px 3px 0 0;
   border: none;
   margin: 1em;
-  border-bottom:1px solid rgb(135, 148, 158);
+  color: rgb(243, 251, 255);
+  border-bottom:1px solid rgb(153, 170, 182);
 }

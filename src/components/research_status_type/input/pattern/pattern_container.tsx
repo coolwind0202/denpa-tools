@@ -8,7 +8,7 @@ type PatternContainerProps = {
 
 const PatternContainer: React.VFC<PatternContainerProps> = ({ className, children }) => {
   return (
-    <div role="radiogroup" className={clsx(className, styles.root)}>
+    <div role="radiogroup" className={clsx(styles.root, className)}>
       { children }
     </div>
   );

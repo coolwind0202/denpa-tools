@@ -9,7 +9,7 @@ type SelectProps = {
 
 const Select: React.VFC<SelectProps> = ({ children, className }) => {
   return (
-    <select className={clsx(className, styles.root)}>
+    <select className={clsx(styles.root, className)}>
       { children }
     </select>
   );

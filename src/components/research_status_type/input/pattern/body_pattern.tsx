@@ -8,7 +8,7 @@ type BodyPatternProps = {
 
 const BodyPattern: React.VFC<BodyPatternProps> = ({ className, children }) => {
   return (
-    <div role="radio" className={clsx(className, styles.root)}>
+    <div role="radio" className={clsx(styles.root, className)}>
       { children }
     </div>
   );

@@ -13,7 +13,7 @@ type NumberInputProps = {
 
 const NumberInput: React.VFC<NumberInputProps> = ({ id, min, max, placeholder, className, required }) => {
   return (
-    <input className={clsx(className, styles.root)} 
+    <input className={clsx(styles.root, className)} 
           id={id}
           type="number" 
           min={min} max={max} 
