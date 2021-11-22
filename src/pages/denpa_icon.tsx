@@ -1,3 +1,5 @@
+import styles from "../../styles/denpa_icon.module.css";
+
 const DenpaIcon = () => {
   /*
     画面右端に、クリックで浮かび上がるメニュー
@@ -9,15 +11,15 @@ const DenpaIcon = () => {
     ファイルアイコンをクリックすると、ファイルに保存するための吹き出しメニューが出現
 
     基本的にユーザーは画面の中央と右側だけを見る
-
-    画面上部にトップページへ戻るボタン
   */
   return (
-    <div>
-      <button>
-        （保存アイコン）
-      </button>
-      <menu>
+    <div className={styles.root}>
+      <main className={styles.main}>
+        <svg className={styles.screen}></svg>
+      </main>
+      
+      <menu className={styles.menu}>
+        {/*
         <section className="layers">
           <section className="eye">
             <p> 目 </p>
@@ -49,10 +51,9 @@ const DenpaIcon = () => {
           <p> 目 </p> <span> 縦方向： </span> <input type=""/> <span> px </span>
           <p> ... </p>
         </section>
+        */}
       </menu>
-      <main>
-        <svg className="screen"></svg>
-      </main>
+
     </div>
   )
 }

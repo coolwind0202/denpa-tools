@@ -1,5 +1,6 @@
 import { JumpTop } from "../../components/common/jump_top";
 import Image from "next/image";
+import Head from "next/head";
 import styles from "../../../styles/blog.module.css";
 
 import 'katex/dist/katex.min.css'
@@ -8,6 +9,9 @@ import Latex from 'react-latex-next'
 const Exp = () => {
   return (
     <div className={styles.main}>
+      <Head>
+        <title> 経験値テーブルについて </title>
+      </Head>
       <JumpTop className={styles.jumpTopDark}/>
       <h3>
         経験値テーブルについて
@@ -15,7 +19,7 @@ const Exp = () => {
 
       <h4> 経験値テーブルとは </h4>
       <p>
-        経験値テーブルはRPGで、あるレベルに到達するにはこの量の経験値が必要だ、というものを定義したものである。
+        経験値テーブルはRPGで、あるレベルに到達するにはこの量の経験値が必要だ、というのを定義したものである。
       </p>
 
       <p>

@@ -1,0 +1,10 @@
+.root {
+  justify-self: flex-start;
+
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  background-color: rgba(212, 212, 212, 0.3);
+
+  visibility: hidden;
+}

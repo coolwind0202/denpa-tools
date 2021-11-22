@@ -42,7 +42,7 @@ const Home: NextPage = () => {
       </p>
       <ul>
         <li>
-          今後拡充予定
+          <Link href="/research_status_type"> 体格判断ガチで </Link>
         </li>
       </ul>
 
@@ -51,6 +51,9 @@ const Home: NextPage = () => {
       </h4>
       <p>
         各種検証のまとめ
+      </p>
+      <p>
+        （ニンテンドー3DSなどのレガシーブラウザでは表示できない、あるいはPC以外の端末では適切に表示されない可能性があります。）
       </p>
       <ul>
         <li>

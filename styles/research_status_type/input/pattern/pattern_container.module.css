@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  gap: 10px;
+  width: calc(5em * 4 + 5px * 3);
+
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(10, 10, 10, 0.1) inset;
+}
