@@ -2,4 +2,5 @@
   justify-self: flex-end;
   font-size: small;
   color: rgb(230, 228, 255);
+  user-select: none;
 }

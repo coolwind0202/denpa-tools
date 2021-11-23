@@ -1,4 +1,4 @@
-import styles from "../../styles/denpa_icon.module.css";
+import styles from "../styles/denpa_icon.module.css";
 
 const DenpaIcon = () => {
   /*

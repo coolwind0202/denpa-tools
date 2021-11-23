@@ -1,4 +1,4 @@
-import styles from "../../../../styles/research_status_type/input/group.module.css";
+import styles from "../../../styles/research_status_type/input/group.module.css";
 
 type GroupProps = {
   children?: React.ReactNode

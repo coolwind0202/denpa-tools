@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from "../../../../styles/research_status_type/input/group_label.module.css";
+import styles from "../../../styles/research_status_type/input/group_label.module.css";
 
 type GroupLabelProps = {
   children?: React.ReactNode,

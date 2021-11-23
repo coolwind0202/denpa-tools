@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from "../../../../../styles/research_status_type/input/pattern/pattern_container.module.css";
+import styles from "../../../../styles/research_status_type/input/pattern/pattern_container.module.css";
 
 type PatternContainerProps = {
   children?: React.ReactNode,
