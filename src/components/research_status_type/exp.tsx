@@ -86,8 +86,8 @@ const Exp = () => {
         ))
       }
     </CardContainer>
-        
   )
+  HeadKindMenu.displayName = "HeadKindMenu";
 
   return (
     <Tab>
