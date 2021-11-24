@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import { MouseEventHandler } from "react";
-import styles from "../../../../styles/research_status_type/input/pattern/body_pattern.module.css";
+import styles from "../../../../styles/research_status_type/input/choice_cards/card.module.css";
 
-type BodyPatternProps = {
+type CardProps = {
   children?: React.ReactNode,
   className?: string,
   onClick?: MouseEventHandler
 }
 
-const BodyPattern: React.VFC<BodyPatternProps> = ({ className, children, onClick }) => {
+const Card: React.VFC<CardProps> = ({ className, children, onClick }) => {
   return (
     <div role="radio" className={clsx(styles.root, className)} onClick={onClick}>
       { children }
@@ -16,4 +16,4 @@ const BodyPattern: React.VFC<BodyPatternProps> = ({ className, children, onClick
   );
 }
 
-export { BodyPattern }
+export { Card }

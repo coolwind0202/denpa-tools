@@ -5,3 +5,7 @@
 .list {
   list-style: none;
 }
+
+.chosenHeadKind {
+  background-color: rgba(232, 231, 246, 0.4);
+}

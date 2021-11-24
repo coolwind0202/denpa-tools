@@ -1,0 +1,27 @@
+.screen {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  border: 1px solid black;
+}
+
+.bodyLine {
+  z-index: 2;
+
+  grid-row: 1;
+  grid-column: 1;
+
+  justify-self: center;
+  align-self: center;
+}
+
+.img {
+  z-index: 1;
+
+  width: 100%;
+  
+  grid-row: 1;
+  grid-column: 1;
+
+  aspect-ratio: 5 / 3;
+}

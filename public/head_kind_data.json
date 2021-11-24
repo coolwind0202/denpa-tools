@@ -1,0 +1,164 @@
+{
+  "kinds": [
+    {
+      "name": "丸",
+      "expMitigation": 0
+    },
+    {
+      "name": "楕円",
+      "expMitigation": 0
+    },
+    {
+      "name": "さかな",
+      "expMitigation": 0
+    },
+    {
+      "name": "土星",
+      "expMitigation": 10
+    },
+    {
+      "name": "太陽",
+      "expMitigation": 20
+    },
+    {
+      "name": "鏡餅",
+      "expMitigation": 0
+    },
+    {
+      "name": "ツボ",
+      "expMitigation": 5
+    },
+    {
+      "name": "玉ねぎ",
+      "expMitigation": 0
+    },
+    {
+      "name": "スライム",
+      "expMitigation": 0
+    },
+    {
+      "name": "金魚鉢",
+      "expMitigation": 0
+    },
+    {
+      "name": "炎",
+      "expMitigation": 5
+    },
+    {
+      "name": "クワガタ",
+      "expMitigation": 18
+    },
+    {
+      "name": "三角",
+      "expMitigation": 0
+    },
+    {
+      "name": "おにぎり",
+      "expMitigation": 0
+    },
+    {
+      "name": "とげ",
+      "expMitigation": 3
+    },
+    {
+      "name": "きらきら",
+      "expMitigation": 8
+    },
+    {
+      "name": "星",
+      "expMitigation": 15
+    },
+    {
+      "name": "せっけん",
+      "expMitigation": 0
+    },
+    {
+      "name": "レモン",
+      "expMitigation": 5
+    },
+    {
+      "name": "ヘッドホン",
+      "expMitigation": 0
+    },
+    {
+      "name": "四角",
+      "expMitigation": 0
+    },
+    {
+      "name": "ブロック",
+      "expMitigation": 5
+    },
+    {
+      "name": "砦",
+      "expMitigation": 13
+    },
+    {
+      "name": "塔",
+      "expMitigation": 30
+    },
+    {
+      "name": "ロケット",
+      "expMitigation": 0
+    },
+    {
+      "name": "悪魔",
+      "expMitigation": 6
+    },
+    {
+      "name": "ホイップ",
+      "expMitigation": 0
+    },
+    {
+      "name": "月",
+      "expMitigation": 10
+    },
+    {
+      "name": "チューリップ",
+      "expMitigation": 5
+    },
+    {
+      "name": "ハート",
+      "expMitigation": 20
+    },
+    {
+      "name": "卵",
+      "expMitigation": 0
+    },
+    {
+      "name": "風船",
+      "expMitigation": 0
+    },
+    {
+      "name": "縦長しずく",
+      "expMitigation": 0
+    },
+    {
+      "name": "六角形",
+      "expMitigation": 5
+    },
+    {
+      "name": "イカ",
+      "expMitigation": 8
+    },
+    {
+      "name": "熊",
+      "expMitigation": 0
+    },
+    {
+      "name": "猫",
+      "expMitigation": 0
+    },
+    {
+      "name": "ネズミ",
+      "expMitigation": 5
+    },
+    {
+      "name": "犬",
+      "expMitigation": 5
+    },
+    {
+      "name": "うさ耳",
+      "expMitigation": 20
+    }
+  ]
+}

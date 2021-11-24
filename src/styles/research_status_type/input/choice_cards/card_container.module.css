@@ -1,11 +1,16 @@
 .root {
   display: flex;
-  gap: 10px;
-  width: calc(5em * 4 + 5px * 3);
+  column-gap: 10px;
+  /* width: calc(5em * 4 + 5px * 3) */
+  /* width: auto; */
+  max-width: 100%;
 
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(10, 10, 10, 0.1) inset;
 
   background: rgb(125, 131, 184);
+  flex-wrap: wrap;
+  max-height: 10em;
+  overflow-y: auto;
 }

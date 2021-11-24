@@ -1,5 +1,5 @@
 import { NumberInput, Select, Group, GroupLabel } from "./input";
-import { PatternContainer, PatternImage, PatternName, BodyPattern } from "./input/pattern";
+import { CardContainer, CardImage, CardName, Card } from "./input/choice_cards";
 import { InputArea, OutputArea, AreaTitle, Tab, OutputContent, OutputNote } from "./tabs";
 import styles from "../../styles/research_status_type/status.module.css";
 
@@ -13,19 +13,6 @@ import type { PatternName as PatternKind } from "../../util/body_patterns";
 /*
   コンポーネントを分割して State を分けるべきか？
 */
-
-type PatternChosenProps = {
-  isChosen: boolean,
-  children?: React.ReactNode
-}
-
-const PatternChosen: React.VFC<PatternChosenProps> = ({ isChosen, children }) => {
-  return (
-    <BodyPattern>
-      { children }    
-    </BodyPattern>
-  )
-}
 
 const Status = () => {
   const [ chosenPattern, setChosenPattern ] = useState<PatternKind>("なし");
@@ -65,20 +52,20 @@ const Status = () => {
 
         <Group>
           <GroupLabel> レア柄 </GroupLabel>
-          <PatternContainer>
+          <CardContainer>
             {
               Array.from(bodyPatterns.values()).map((pattern, i) => {
                 return (
-                  <BodyPattern key={i} 
+                  <Card key={i} 
                           onClick={() => { setChosenPattern(pattern.label) }} 
                           className={clsx(pattern.label === chosenPattern && styles.chosenPattern)}>
-                    <PatternImage />
-                    <PatternName> {pattern.label}  </PatternName>
-                  </BodyPattern>
+                    <CardImage />
+                    <CardName> {pattern.label}  </CardName>
+                  </Card>
                 );
               })
             }
-          </PatternContainer>
+          </CardContainer>
         </Group>
       </InputArea>
 

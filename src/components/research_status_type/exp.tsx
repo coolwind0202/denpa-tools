@@ -1,35 +1,49 @@
 import { NumberInput, Select, Group, GroupLabel } from "./input";
 import { InputArea, OutputArea, AreaTitle, Tab, OutputContent, OutputNote } from "./tabs";
+import { CardContainer, CardImage, CardName, Card } from "./input/choice_cards";
 
 import styles from "../../styles/research_status_type/exp.module.css";
-import { ChangeEventHandler, FormEvent, useState } from "react";
+import React, { ChangeEventHandler, FormEvent, useMemo, useState } from "react";
 import { convertExp, ratioLabels } from "../../util/exp_ratio";
 import { BodyType, bodyTypes } from "../../util/body_types";
 
-import data from "../../../public/exp.json";
+import expData from "../../../public/exp.json";
+import headKindData from "../../../public/head_kind_data.json";
 
 import { useExp } from "../../hooks/use_exp";
 import { Eva, evaRates, isEva } from "../../util/eva";
+import clsx from "clsx";
+import { HeadKind } from "../../util/head_kinds";
 
 const Exp = () => {
   const [ eva, setEva ] = useState<Eva>(0);
   const [ lv, setLv ] = useState<number>(1);
   const [ nextLvExp, setTotal, setNext ] = useExp();
+  const [ headKind, setHeadKind ] = useState<{ name: string, expMitigation: number }>();
+
+  const [ isMaxLv, setIsMaxLv ] = useState<boolean>(false);
 
   /*
-    diff が同値のものが複数あった場合は？
-    -> すべて表示する。
-    -> search() で、最大値と同値でないもの以外は切っていい。
-    -> 参考値として diff の値を表示したいので、searchから diff も渡す。
+    頭型の名前は覚えるものではない。
+    だから、画像を添付すべきだ。
+
+    基本的に画像を作らないために、経験値の干渉がない頭型は「その他」に指定する。
+    柄の選択で使用した Pattern 系コンポーネントを流用したい。
+
+    コンポーネント名をすべてエラーがないように変更し、
+    また、PatternContainerのwidth など適切な形に修正する。
   */
 
   const getValue = (e: FormEvent<HTMLInputElement>) => {
     return e.currentTarget.valueAsNumber || 0;
   }
 
-  const search = (lv: number, exp: number, eva: Eva) => {
+  const search = (lv: number, exp: number, eva: Eva, expMitigation: number) => {
+    const mitigationValue = (100 - expMitigation) / 100;  // 百分率 -> 0 ~ 1
+    console.log(expMitigation, mitigationValue)
+
     const index = lv + 1;
-    const baseVal = data.total[index];
+    const baseVal = expData.total[index] * mitigationValue;
     console.log(index, baseVal)
 
     const candidates = bodyTypes.get(eva);
@@ -54,6 +68,27 @@ const Exp = () => {
     if (isEva(input)) setEva(input);
   }
 
+  const HeadKindMenu = React.memo(() => 
+    <CardContainer>
+      <Card onClick={() => setHeadKind(undefined)} className={clsx(headKind === undefined && styles.chosenHeadKind)}>
+        <CardImage />
+        <CardName> なし </CardName>
+      </Card>
+      {
+        headKindData.kinds
+        .filter(kind => kind.expMitigation !== 0)
+        .sort((a, b) => -(a.expMitigation - b.expMitigation))
+        .map((kind, i) => (
+          <Card key={i} onClick={() => setHeadKind(kind)} className={clsx(kind.name === headKind?.name && styles.chosenHeadKind)}>
+            <CardImage />
+            <CardName> { kind.name } </CardName>
+          </Card>
+        ))
+      }
+    </CardContainer>
+        
+  )
+
   return (
     <Tab>
       <InputArea>
@@ -76,10 +111,14 @@ const Exp = () => {
             <NumberInput id="exp-total" min={0} placeholder="累計EXP" required={true} className={styles.expInput} onChange={e => setTotal(getValue(e))}/>
             <NumberInput id="exp-next" min={0} placeholder="次のLvに必要なEXP" required={true} className={styles.expInput} onChange={e => setNext(getValue(e))}/>
           </p>
-            
-          <Select>
-            <option> チューリップ </option>
-          </Select>
+          <p>
+            <input type="checkbox" onClick={() => setIsMaxLv(!isMaxLv)} id="isMaxLv"/> 
+            <label htmlFor="isMaxLv"> 世代最大Lv</label>
+          </p>
+        </Group>
+        <Group>
+          <GroupLabel> 頭型 </GroupLabel>
+          <HeadKindMenu />
         </Group>
       </InputArea>
 
@@ -87,8 +126,19 @@ const Exp = () => {
         <AreaTitle> OUTPUT / EXP </AreaTitle>
         <OutputContent>
           <OutputNote>
-            個体の次レベル（Lv.{ lv + 1}）到達時の経験値は { nextLvExp } です。
+          {
+            isMaxLv ? (
+              <>
+                各タイプの Lv. { lv } 到達に必要な経験値と { nextLvExp } とを比較します。
+              </>
+            ) : (
+              <>
+                個体の次レベル（Lv.{ lv + 1 }）到達時の経験値は { nextLvExp } です。
+              </>
+            )
+          }
           </OutputNote>
+
           
           <OutputNote>
             逆算します...
@@ -96,10 +146,11 @@ const Exp = () => {
 
           <ul className={styles.list}>
             { 
-              search(lv, nextLvExp, eva).map((candidate, i) => {
+              search(lv + (isMaxLv ? -1 : 0), nextLvExp, eva, headKind?.expMitigation ?? 0).map((candidate, i) => {
                 const [ bodyType, diff ] = candidate;
+                const subCategory = bodyType.hpCategory[1] ? `-${bodyType.hpCategory[1]}` : "";
                 return (
-                  <li> {bodyType.label}【{bodyType.hpCategory[0]}-{bodyType.hpCategory[1] ?? 1}】（誤差: {diff.toFixed(1)}） </li>
+                  <li key={i}> {bodyType.label}【{bodyType.hpCategory[0]}{subCategory}】（理論値誤差: {diff.toFixed(1)}） </li>
                 )
               })
             }

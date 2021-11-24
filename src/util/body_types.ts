@@ -11,6 +11,10 @@ type BodyType = {
 // -> 体格だけで決定しかねるので、ステータス関数を体格にもたせるべきでない。
 // BodyType やその他の情報を受け取ってステータス関数を返す関数を別途作る。
 
+/*
+  ここにこれ書くのおかしくね？
+*/
+
 const bodyTypes = new Map<Eva, BodyType[]>([
   [0, 
     [
@@ -41,7 +45,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
       {
         eva: 0,
         hpCategory: [5, null],
-        label: "準大",
+        label: "最速",
         expRatio: "B",
       },
     ]
@@ -52,7 +56,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
         eva: 3,
         hpCategory: [2, null],
         label: "最大型",
-        expRatio: "B" /* あってる？ */
+        expRatio: "B"
       },
       {
         eva: 3,
@@ -106,7 +110,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
         eva: 3,
         hpCategory: [7, null],
         label: "最速",
-        expRatio: "C" /* あってる？ */
+        expRatio: "F"
       },
     ]
   ],
@@ -116,7 +120,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
         eva: 6,
         hpCategory: [4, null], 
         label: "最大型",
-        expRatio: "A", /* あってる？ */
+        expRatio: "E",
       },
       {
         eva: 6,
