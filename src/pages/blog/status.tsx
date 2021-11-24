@@ -1,4 +1,4 @@
-import styles from "../../../styles/blog.module.css";
+import styles from "../../styles/blog.module.css";
 import { JumpTop } from "../../components/common/jump_top";
 import Image from "next/image";
 

@@ -1,7 +1,7 @@
 import { JumpTop } from "../../components/common/jump_top";
 import Image from "next/image";
 import Head from "next/head";
-import styles from "../../../styles/blog.module.css";
+import styles from "../../styles/blog.module.css";
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
