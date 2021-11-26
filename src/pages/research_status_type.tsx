@@ -4,12 +4,19 @@ import { Status } from "../components/research_status_type/status";
 import { Exp } from "../components/research_status_type/exp";
 import { Shape } from "../components/research_status_type/shape";
 
+
+import HeadSvgs from "../../public/heads/all.svg";
+import PatternSvgs from "../../public/patterns/all.svg";
+
 const ResearchStatusType = () => {
   return (
     <div className={styles.root}>
       <Head>
         <title> 体格判断ガチで </title>
       </Head>
+
+      <HeadSvgs className={styles.svgs} />
+      <PatternSvgs className={styles.svgs} />
       
       <Status />
 

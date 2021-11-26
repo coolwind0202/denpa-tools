@@ -3,14 +3,14 @@ type PatternName = typeof patternNames[number];
 
 type BodyPattern = {
   label: PatternName,
-  image: string
+  svgID: string
 }
 
 const bodyPatterns = new Map<string, BodyPattern>([
-  ["none", { label: "なし", image: "" }],
-  ["tiger", { label: "虎柄", image: "" }],
-  ["diamond", { label: "ダイヤ柄", image: "" }],
-  ["brick", { label: "レンガ柄", image: "" }],
+  ["none", { label: "なし", svgID: "" }],
+  ["tiger", { label: "虎柄", svgID: "tiger" }],
+  ["diamond", { label: "ダイヤ柄", svgID: "diamond" }],
+  ["brick", { label: "レンガ柄", svgID: "brick" }],
 ]);
 
 export { bodyPatterns, patternNames };

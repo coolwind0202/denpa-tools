@@ -9,11 +9,50 @@ import { BodyType, bodyTypes } from "../../util/body_types";
 
 import expData from "../../../public/exp.json";
 import headKindData from "../../../public/head_kind_data.json";
+import headImageData from "../../../public/head_kind_image.json";
 
 import { useExp } from "../../hooks/use_exp";
 import { Eva, evaRates, isEva } from "../../util/eva";
 import clsx from "clsx";
 import { HeadKind } from "../../util/head_kinds";
+
+const HeadKindMenu = React.memo(({ headKind, onChange }: { headKind?: HeadKind, onChange: (kind: HeadKind | undefined) => void}) => {
+  const headKinds = useMemo(() => 
+    headKindData.kinds
+      .filter(kind => kind.expMitigation !== 0)
+      .sort((a, b) => -(a.expMitigation - b.expMitigation))
+    , []);
+  return (
+    <Group>
+      <GroupLabel> 頭型 </GroupLabel>
+      <CardContainer>
+        <Card onClick={() => onChange(undefined)} className={clsx(headKind === undefined && styles.chosenHeadKind)}>
+          <CardImage />
+          <CardName> なし </CardName>
+        </Card>
+        {
+          headKinds
+          .map((kind, i) => (
+            <Card key={i} onClick={() => onChange(kind)} className={clsx(kind.name === headKind?.name && styles.chosenHeadKind)}>
+              <CardImage>
+                <svg className={styles.svg} viewBox="0 0 210 210">
+                  <use className={styles.use} fill="#005eac"
+                    href={"#all_svg__" + headImageData.images.find(data => data.name == kind.name)?.svgID ?? ""} />                  
+                </svg>
+              </CardImage>
+              <CardName> { kind.name } </CardName>
+            </Card>
+          ))
+        }
+      </CardContainer>
+    </Group>
+  )
+}, (prev, next) => {
+  console.log(prev, next);
+  return prev.headKind?.name === next.headKind?.name
+});
+HeadKindMenu.displayName = "HeadKindMenu";
+
 
 const Exp = () => {
   const [ eva, setEva ] = useState<Eva>(0);
@@ -27,11 +66,17 @@ const Exp = () => {
     頭型の名前は覚えるものではない。
     だから、画像を添付すべきだ。
 
-    基本的に画像を作らないために、経験値の干渉がない頭型は「その他」に指定する。
-    柄の選択で使用した Pattern 系コンポーネントを流用したい。
+    -> 画像はutil内でimportする。
+    -> util内では、必要な頭型に Inline-svg がマッピングされている。
 
-    コンポーネント名をすべてエラーがないように変更し、
-    また、PatternContainerのwidth など適切な形に修正する。
+    -> useRefで直接SVGを取得してもよいが、、、
+    -> とにかく、CSSやJavaScriptでスタイルを変更できなければならない。
+
+    基本的に画像を作らないために、経験値の干渉がない頭型は「その他」に指定する。 -> ok
+    柄の選択で使用した Pattern 系コンポーネントを流用したい。　-> ok
+
+    コンポーネント名をすべてエラーがないように変更し、 -> ok
+    また、PatternContainerのwidth など適切な形に修正する。 -> ok
   */
 
   const getValue = (e: FormEvent<HTMLInputElement>) => {
@@ -68,26 +113,10 @@ const Exp = () => {
     if (isEva(input)) setEva(input);
   }
 
-  const HeadKindMenu = React.memo(() => 
-    <CardContainer>
-      <Card onClick={() => setHeadKind(undefined)} className={clsx(headKind === undefined && styles.chosenHeadKind)}>
-        <CardImage />
-        <CardName> なし </CardName>
-      </Card>
-      {
-        headKindData.kinds
-        .filter(kind => kind.expMitigation !== 0)
-        .sort((a, b) => -(a.expMitigation - b.expMitigation))
-        .map((kind, i) => (
-          <Card key={i} onClick={() => setHeadKind(kind)} className={clsx(kind.name === headKind?.name && styles.chosenHeadKind)}>
-            <CardImage />
-            <CardName> { kind.name } </CardName>
-          </Card>
-        ))
-      }
-    </CardContainer>
-  )
-  HeadKindMenu.displayName = "HeadKindMenu";
+  const headKindChangeHandler = (kind: HeadKind | undefined) => {
+    setHeadKind(kind);
+  }
+
 
   return (
     <Tab>
@@ -116,10 +145,7 @@ const Exp = () => {
             <label htmlFor="isMaxLv"> 世代最大Lv</label>
           </p>
         </Group>
-        <Group>
-          <GroupLabel> 頭型 </GroupLabel>
-          <HeadKindMenu />
-        </Group>
+        <HeadKindMenu headKind={headKind} onChange={headKindChangeHandler} />
       </InputArea>
 
       <OutputArea>
@@ -139,6 +165,12 @@ const Exp = () => {
           }
           </OutputNote>
 
+          { 
+            lv < 3 && 
+            <OutputNote>
+              注意：<b>Lv が極端に低い場合、他の経験値タイプが干渉して適切に判定できないおそれがあります。</b>
+            </OutputNote>
+          }
           
           <OutputNote>
             逆算します...

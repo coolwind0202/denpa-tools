@@ -1,0 +1,164 @@
+{
+  "images": [
+    {
+      "name": "丸",
+      "svgID": ""
+    },
+    {
+      "name": "楕円",
+      "svgID": ""
+    },
+    {
+      "name": "さかな",
+      "svgID": ""
+    },
+    {
+      "name": "土星",
+      "svgID": "saturn"
+    },
+    {
+      "name": "太陽",
+      "svgID": "sun"
+    },
+    {
+      "name": "鏡餅",
+      "svgID": ""
+    },
+    {
+      "name": "ツボ",
+      "svgID": ""
+    },
+    {
+      "name": "玉ねぎ",
+      "svgID": ""
+    },
+    {
+      "name": "スライム",
+      "svgID": ""
+    },
+    {
+      "name": "金魚鉢",
+      "svgID": ""
+    },
+    {
+      "name": "炎",
+      "svgID": ""
+    },
+    {
+      "name": "クワガタ",
+      "svgID": "stag_beetle"
+    },
+    {
+      "name": "三角",
+      "svgID": ""
+    },
+    {
+      "name": "おにぎり",
+      "svgID": ""
+    },
+    {
+      "name": "とげ",
+      "svgID": ""
+    },
+    {
+      "name": "きらきら",
+      "svgID": "kirakira"
+    },
+    {
+      "name": "星",
+      "svgID": "star"
+    },
+    {
+      "name": "せっけん",
+      "svgID": ""
+    },
+    {
+      "name": "レモン",
+      "svgID": ""
+    },
+    {
+      "name": "ヘッドホン",
+      "svgID": ""
+    },
+    {
+      "name": "四角",
+      "svgID": ""
+    },
+    {
+      "name": "ブロック",
+      "svgID": ""
+    },
+    {
+      "name": "砦",
+      "svgID": "fort"
+    },
+    {
+      "name": "塔",
+      "svgID": "tower"
+    },
+    {
+      "name": "ロケット",
+      "svgID": ""
+    },
+    {
+      "name": "悪魔",
+      "svgID": ""
+    },
+    {
+      "name": "ホイップ",
+      "svgID": ""
+    },
+    {
+      "name": "月",
+      "svgID": "moon"
+    },
+    {
+      "name": "チューリップ",
+      "svgID": "tulip"
+    },
+    {
+      "name": "ハート",
+      "svgID": "heart"
+    },
+    {
+      "name": "卵",
+      "svgID": ""
+    },
+    {
+      "name": "風船",
+      "svgID": ""
+    },
+    {
+      "name": "縦長しずく",
+      "svgID": ""
+    },
+    {
+      "name": "六角形",
+      "svgID": ""
+    },
+    {
+      "name": "イカ",
+      "svgID": "squid"
+    },
+    {
+      "name": "熊",
+      "svgID": ""
+    },
+    {
+      "name": "猫",
+      "svgID": ""
+    },
+    {
+      "name": "ネズミ",
+      "svgID": ""
+    },
+    {
+      "name": "犬",
+      "svgID": ""
+    },
+    {
+      "name": "うさ耳",
+      "svgID": "rabbit"
+    }
+  ]
+}

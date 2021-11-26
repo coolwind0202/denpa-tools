@@ -103,7 +103,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
       {
         eva: 3,
         hpCategory: [6, 2],
-        label: "準速",
+        label: "最速+",
         expRatio: "C"
       },
       {
@@ -161,7 +161,7 @@ const bodyTypes = new Map<Eva, BodyType[]>([
       {
         eva: 0,
         hpCategory: [8, null],
-        label: "最速",
+        label: "最小",
         expRatio: "F",
       },
     ]

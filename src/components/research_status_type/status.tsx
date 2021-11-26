@@ -59,7 +59,12 @@ const Status = () => {
                   <Card key={i} 
                           onClick={() => { setChosenPattern(pattern.label) }} 
                           className={clsx(pattern.label === chosenPattern && styles.chosenPattern)}>
-                    <CardImage />
+                    <CardImage> 
+                      <svg className={styles.svg} viewBox="0 0 210 210">
+                        <use className={styles.use} fill="#005eac"
+                        href={"#all_svg__" + pattern.svgID} />
+                      </svg>
+                    </CardImage>
                     <CardName> {pattern.label}  </CardName>
                   </Card>
                 );
